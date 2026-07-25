@@ -1,0 +1,25 @@
+\babel@toc {vietnamese}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Ví dụ ảnh biển số tượng trưng cho tập dữ liệu}}{27}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Một số biển số ký hiếm được tạo thêm vào }}{32}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Tổng quy trình xử lý dữ liệu OCR}}{33}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Vị trí của mô hình YOLO trong pipeline nhận dạng biển số xe.}}{34}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Kết quả phát hiện biển số xe bằng mô hình YOLOv8 với hộp giới hạn.}}{35}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Các đường cong đánh giá mô hình YOLOv8n}}{36}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Biểu đồ loss và các chỉ số trong quá trình huấn luyện}}{37}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Ma trận nhầm lẫn trên tập test}}{39}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Biểu đồ Accuracy, Normalized Edit Distance và Loss trong quá trình huấn luyện OCR}}{41}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Một số kết quả nhận dạng biển số trên tập test của mô hình Paddle OCR}}{42}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Biểu đồ thống kê số lần nhận dạng sai theo từng ký tự trên tập test}}{44}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Biểu đồ thống kê tỉ lệ nhận dạng sai theo từng ký tự trên tập test}}{44}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Quy trình nhận dạng biển số trong hệ thống quản lý xe ra vào}}{45}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Giao diện đăng nhập}}{46}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Giao diện chính hệ thống}}{47}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Giao diện chức năng lưu xe vào}}{47}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Giao diện chức năng lưu xe ra}}{48}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Giao diện tổng kết ngày}}{49}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Giao diện lịch sử trong ngày }}{49}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Giao diện cấu hình giá vé }}{50}{figure.caption.36}%
+\addvspace {10\p@ }

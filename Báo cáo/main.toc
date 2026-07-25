@@ -1,0 +1,80 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {chapter}{DANH MỤC HÌNH ẢNH}{6}{Doc-Start}%
+\contentsline {chapter}{DANH MỤC BẢNG BIỂU}{7}{chapter*.1}%
+\contentsline {chapter}{DANH SÁCH CÁC KÝ HIỆU, CÁC CHỮ VIẾT TẮT VÀ TỪ KHÓA}{8}{section*.3}%
+\contentsline {chapter}{\numberline {1}TỔNG QUAN}{9}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Giới thiệu đề tài}{9}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Nhiệm vụ đề tài}{9}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Tính cấp thiết của đề tài}{9}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Ý nghĩa khoa học và thực tiễn của đề tài}{10}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Mục tiêu}{11}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Mục tiêu tổng quát}{11}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Mục tiêu cụ thể}{11}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Đối tượng và phạm vi}{12}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Đối tượng nghiên cứu}{12}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Phạm vi nghiên cứu}{12}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Phương pháp nghiên cứu}{13}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Phương pháp nghiên cứu sơ bộ}{13}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Phương pháp nghiên cứu tài liệu}{13}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}Phương pháp nghiên cứu thống kê}{13}{subsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.5.4}Phương pháp thực nghiệm}{13}{subsection.1.5.4}%
+\contentsline {subsection}{\numberline {1.5.5}Phương pháp đánh giá}{14}{subsection.1.5.5}%
+\contentsline {chapter}{\numberline {2}CƠ SỞ LÝ THUYẾT}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Tổng quan về nhận dạng biển số xe}{15}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Khái niệm nhận dạng biển số xe}{15}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Quy trình nhận dạng biển số xe}{15}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Đặc điểm của biển số xe Việt Nam}{15}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Mô hình YOLO trong phát hiện biển số}{16}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Khái niệm phát hiện đối tượng}{16}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Tổng quan về YOLO}{16}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Lịch sử phát triển của mô hình YOLO}{17}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Định dạng nhãn YOLO}{17}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}YOLOv8n trong nhận diện biển số xe}{18}{subsection.2.2.5}%
+\contentsline {section}{\numberline {2.3}Mô hình OCR trong nhận dạng ký tự}{19}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Khái niệm OCR}{19}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Tổng quan về PaddleOCR}{20}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Mô hình PaddleOCR Recognition}{21}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Dictionary ký tự}{21}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Đặc điểm lỗi trong OCR biển số}{21}{subsection.2.3.5}%
+\contentsline {section}{\numberline {2.4}Các chỉ số đánh giá mô hình}{22}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Accuracy, Precision và Recall}{22}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}mAP50 và mAP50-95}{23}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Normalized Edit Distance}{23}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Phân tích lỗi theo ký tự}{24}{subsection.2.4.4}%
+\contentsline {section}{\numberline {2.5}Công nghệ sử dụng}{24}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Python}{24}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}OpenCV}{24}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Google colap}{24}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}Ultralytics YOLO}{25}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.5.5}PaddleOCR}{25}{subsection.2.5.5}%
+\contentsline {subsection}{\numberline {2.5.6}Streamlit}{25}{subsection.2.5.6}%
+\contentsline {subsection}{\numberline {2.5.7}SQLite}{25}{subsection.2.5.7}%
+\contentsline {chapter}{\numberline {3}KẾT QUẢ THỰC NGHIỆM}{26}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Dữ liệu thực nghiệm}{26}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Dữ liệu huấn luyện mô hình YOLO}{26}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Dữ liệu huấn luyện mô hình OCR}{27}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Phân chia dữ liệu train, validation và test mô hình YOLO}{28}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Chuẩn bị dữ liệu cho mô hình OCR}{29}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Làm sạch nhãn biển số}{29}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Xây dựng dictionary ký tự}{30}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Bổ sung dữ liệu ký tự hiếm}{30}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Phân chia tập train, val, test và cân bằng dữ liệu}{31}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Huấn luyện và đánh giá mô hình YOLO}{34}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Vai trò của huấn luyện YOLO trong hệ thống}{34}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Cấu hình huấn luyện YOLOv8n}{35}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Kết quả đánh giá mô hình YOLO}{36}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Huấn luyện và đánh giá mô hình Paddle OCR}{40}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Cấu hình huấn luyện}{40}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Kết quả huấn luyện}{40}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Đánh giá trên tập validation và test}{42}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Phân tích lỗi và điều chỉnh dữ liệu}{43}{subsection.3.4.4}%
+\contentsline {section}{\numberline {3.5}Demo ứng dụng}{45}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Quy trình hệ thống}{45}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Giao diện login}{46}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}giao diện chính hệ thống}{47}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}giao diện chức năng lưu xe ra}{48}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}những tính năng khác}{49}{subsection.3.5.5}%
+\contentsline {chapter}{\numberline {4}KẾT LUẬN VÀ KIẾN NGHỊ}{51}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Kết quả đạt được}{51}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Hạn chế của đề tài}{52}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Hướng phát triển}{53}{section.4.3}%

@@ -1,0 +1,19 @@
+\babel@toc {vietnamese}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Các trường trong định dạng nhãn YOLO}}{18}{table.caption.5}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Thống kê số lượng đối tượng biển số trong mỗi ảnh của bộ dữ liệu YOLO}}{27}{table.caption.7}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Kết quả chia file dữ liệu huấn luyện mô hình YOLO}}{28}{table.caption.8}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Thống kê số lượng đối tượng biển số trong mỗi ảnh của bộ dữ liệu YOLO}}{29}{table.caption.9}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Ví dụ nhãn biển số trước và sau khi làm sạch}}{29}{table.caption.10}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces So sánh phân bố ký tự trong dữ liệu OCR trước và sau khi bổ sung ký tự hiếm}}{30}{table.3.5}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Số lượng ảnh trong các tập dữ liệu sau khi chia}}{31}{table.caption.11}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces Tần suất ký tự trong tập train sau khi cân bằng dữ liệu}}{32}{table.3.7}%
+\contentsline {table}{\numberline {3.8}{\ignorespaces Cấu hình huấn luyện mô hình YOLOv8n trên Google Colab}}{36}{table.caption.16}%
+\contentsline {table}{\numberline {3.9}{\ignorespaces Kết quả đánh giá mô hình YOLOv8n trên tập test}}{38}{table.caption.19}%
+\contentsline {table}{\numberline {3.10}{\ignorespaces Cấu hình huấn luyện mô hình OCR}}{40}{table.caption.21}%
+\contentsline {table}{\numberline {3.11}{\ignorespaces Kết quả huấn luyện mô hình Paddle OCR qua một số epoch}}{40}{table.caption.22}%
+\contentsline {table}{\numberline {3.12}{\ignorespaces Kết quả đánh giá mô hình OCR trên tập validation và test}}{42}{table.caption.25}%
+\contentsline {table}{\numberline {3.13}{\ignorespaces Thống kê một số ký tự nhận dạng sai nhiều trên tập test}}{43}{table.caption.26}%
+\addvspace {10\p@ }

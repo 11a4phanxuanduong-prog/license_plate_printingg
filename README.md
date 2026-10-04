@@ -1,131 +1,137 @@
-Hệ Thống Quản Lý Xe Ra Vào Tự Động Cho Bãi Giữ Xe Nhỏ
-Đồ án cơ sở - Ngành Công nghệ Thông tin (Chuyên ngành Khoa học Dữ liệu)
+# 🚗 Hệ Thống Quản Lý Xe Ra Vào Tự Động Cho Bãi Giữ Xe Nhỏ
 
-Trường Đại học Công nghệ TP.HCM (HUTECH)
+Hệ thống ứng dụng kĩ thuật Thị giác máy tính (Computer Vision) và Học sâu (Deep Learning) để tự động hóa quy trình quản lý xe ra vào bãi. Hệ thống kết hợp **YOLOv8n** cho bài toán phát hiện vị trí biển số xe và **PaddleOCR (PP-OCRv4)** cho bài toán nhận dạng chuỗi ký tự.
 
-Giảng viên hướng dẫn: ThS. Nguyễn Quang Phúc
+## 📌 1. Quy Trình Hoạt Động (Pipeline)
 
-Sinh viên thực hiện: Phan Xuân Dương (MSSV: 2386400966)
+Quy trình nhận dạng và quản lý xe ra vào được thực hiện qua các bước chính:
 
-📌 Giới Thiệu Đề Tài
-Trong các bãi giữ xe quy mô vừa và nhỏ (cửa hàng, quán ăn, chung cư nhỏ...), việc ghi nhận biển số và tính tiền thủ công dễ gây ra sai sót, tốn thời gian tra cứu. Hệ thống này cung cấp giải pháp tự động hóa quy trình kiểm soát phương tiện ra vào bằng các công nghệ thị giác máy tính và học sâu tiên tiến, thiết kế tối ưu để chạy mượt mà trên thiết bị cá nhân hoặc thiết bị biên.
+```mermaid
+flowchart TD
+    A[Ảnh xe đầu vào] --> B[YOLOv8n phát hiện vùng biển số]
+    B --> C[Crop vùng biển số theo Bounding Box]
+    C --> D[Resize + Padding ảnh biển số 48x320]
+    D --> E[PaddleOCR nhận dạng chuỗi ký tự]
+    E --> F[Chuỗi biển số nhận dạng]
+    F --> G[Xử lý lưu trữ & nghiệp vụ SQLite / Streamlit]
+```
 
-Pipeline Xử Lý
-Phát hiện biển số: Sử dụng mô hình YOLOv8n xác định khung bao (bounding box) biển số từ ảnh/camera.
+**Quy trình nghiệp vụ ra/vào bãi:**
+(Chi tiết sơ đồ khối xử lý xe vào, xe ra và tính phí thanh toán)
 
-Tiền xử lý ảnh: Cắt (crop) vùng biển số và chuẩn hóa bằng kỹ thuật Resize + Padding giữ nguyên tỉ lệ ký tự.
+## 🛠️ 2. Công Nghệ Sử Dụng
 
-Nhận dạng ký tự (OCR): Đưa ảnh vào mô hình PaddleOCR (PP-OCRv4 / SVTR_LCNet) để trích xuất chuỗi ký tự.
+- **Ngôn ngữ:** Python
+- **Phát hiện biển số (Detection):** Ultralytics YOLOv8n
+- **Nhận dạng ký tự (OCR):** PaddleOCR (PP-OCRv4 Recognition, kiến trúc SVTR_LCNet)
+- **Xử lý ảnh:** OpenCV
+- **Giao diện Web App:** Streamlit
+- **Cơ sở dữ liệu:** SQLite
 
-Quản lý nghiệp vụ: Lưu dữ liệu vào cơ sở dữ liệu SQLite, hỗ trợ lưu xe vào/ra, phân loại phương tiện, tính phí và tổng kết doanh thu.
+## 📊 3. Dữ Liệu Thực Nghiệm & Tiền Xử Lý
 
-✨ Tính Năng Chính
-Lưu xe vào bãi:
+### 3.1. Dữ liệu huấn luyện YOLO
 
-Hỗ trợ tải ảnh hoặc chụp trực tiếp qua Webcam/Camera.
+- **Tổng số mẫu:** 4.577 ảnh (chứa 4.578 đối tượng biển số).
+- **Phân chia dữ liệu:** Train (80% - 3.632 ảnh), Validation (10% - 472 ảnh), Test (10% - 473 ảnh).
 
-Tự động phát hiện vị trí & đọc chuỗi ký tự biển số.
+### 3.2. Dữ liệu huấn luyện OCR
 
-Tự động đề xuất loại xe (Ô tô / Xe máy) dựa trên ký tự biển số hoặc chọn thủ công.
+- **Nguồn dữ liệu:** Kết hợp dữ liệu Vietnamese License Plate OCR (11.096 ảnh) và các mẫu cắt từ dữ liệu YOLO.
+- **Tổng bộ dữ liệu OCR:** 12.515 ảnh.
+- **Xử lý mất cân bằng dữ liệu:**
+  - Chuẩn hóa nhãn (loại bỏ gạch ngang, khoảng trắng, chuyển in hoa).
+  - Bổ sung dữ liệu ký tự hiếm (R, S, U, V, X, Y, Z).
+  - Cân bằng tập Train bằng Data Augmentation (xoay ảnh, chỉnh độ sáng/tương phản, nhiễu nhẹ).
+  - Thống nhất kích thước ảnh đầu vào 48×320 bằng phương pháp Resize + Padding giữ nguyên tỷ lệ gốc.
 
-Lưu xe ra bãi:
+## 📈 4. Kết Quả Huấn Luyện & Đánh Giá
 
-Nhận dạng biển số khi xe rời bãi và đối chiếu tự động với cơ sở dữ liệu.
+### 4.1. Mô hình YOLOv8n (Phát hiện biển số)
 
-Tự động tính thời gian gửi và tính tiền dựa trên cấu hình giá vé.
+Mô hình huấn luyện trên Google Colab GPU trong 100 epochs (Batch size 16, Image size 640).
 
-Thống kê & Báo cáo:
+**Kết quả trên tập Test (473 ảnh / 553 biển số):**
 
-Xem danh sách xe hiện đang gửi trong bãi theo thời gian thực.
+| Chỉ số | Giá trị |
+|---|---|
+| Precision | 0.9558 |
+| Recall | 0.8608 |
+| mAP50 | 0.8610 |
+| mAP50-95 | 0.7689 |
+| Tốc độ suy luận (Inference) | ~44.0 ms/ảnh (đáp ứng thời gian thực) |
 
-Tổng kết ngày: hiển thị tổng xe vào/ra, doanh thu theo loại xe và tổng doanh thu.
+**Biểu đồ đánh giá huấn luyện YOLOv8n:**
 
-Xuất báo cáo dữ liệu lịch sử ra file .csv.
+- Đường cong F1, Precision, Recall & PR-Curve:
+- Ma trận nhầm lẫn (Confusion Matrix) trên tập Test:
 
-Cấu hình hệ thống:
+### 4.2. Mô hình PaddleOCR (Nhận dạng ký tự)
 
-Giao diện Đăng nhập / Quản trị bảo mật.
+Huấn luyện 50 epochs trên Google Colab GPU (Batch size 64, Learning rate 0.0005, kết hợp CTCLoss & NRTRLoss).
 
-Linh hoạt tùy chỉnh khung giá vé (giá giờ đầu, giá các giờ tiếp theo) cho từng loại xe.
+**Kết quả qua các Epoch:**
 
-🛠️ Công Nghệ & Thư Viện Sử Dụng
-Ngôn ngữ: Python
+- Epoch 1: Accuracy = 0.0000, Norm Edit Distance = 0.1878
+- Epoch 50: Accuracy = 0.9453, Norm Edit Distance = 0.9891, CTC Loss = 0.2902
 
-Computer Vision & Deep Learning: OpenCV, Ultralytics YOLO (YOLOv8n), PaddleOCR (PP-OCRv4), PyTorch.
+**Đánh giá trên tập kiểm thử:**
 
-Web App Framework: Streamlit
+| Tập dữ liệu | Số mẫu | Accuracy | Norm Edit Distance |
+|---|---|---|---|
+| Validation | 1.253 | 0.856 | 0.960 |
+| Test | 1.252 | 0.856 | 0.952 |
 
-Cơ sở dữ liệu: SQLite3
+**Biểu đồ quá trình huấn luyện OCR**
 
-Khác: Matplotlib (phân tích biểu đồ loss/metrics), Pandas.
+**Thống kê lỗi trên tập Test theo từng ký tự**
 
-📊 Kết Quả Thực Nghiệm
-1. Mô hình YOLOv8n (Phát hiện biển số)
-Tập dữ liệu: 4,578 ảnh biển số xe Việt Nam.
+> **Nhận xét:** Các chữ số (0, 1, 3, 8) có số lần sai tuyệt đối cao do tần suất xuất hiện lớn. Ngược lại, các chữ cái ít xuất hiện (N, P, V, X) có tỷ lệ sai tương đối cao (>10%).
 
-Kết quả đánh giá trên tập Test:
+## 🖥️ 5. Giao Diện Demo Ứng Dụng (Streamlit)
 
-Precision: 0.9558 (95.58%)
+Ứng dụng được thiết kế hoàn chỉnh các chức năng quản lý bãi giữ xe:
 
-Recall: 0.8608 (86.08%)
+| Chức năng | Mô tả |
+|---|---|
+| Đăng nhập quản trị | Giao diện bảo mật đăng nhập |
+| Lưu xe vào bãi | Tải ảnh/chụp camera, tự nhận dạng biển số & gợi ý loại xe |
+| Lưu xe ra bãi | Đối chiếu biển số, tính số giờ gửi & tổng tiền vé |
+| Tổng kết doanh thu | Thống kê tổng xe, lượt gửi, doanh thu & xuất CSV |
+| Cấu hình giá vé | Thiết lập block giờ đầu và đơn giá cho xe máy/ô tô |
 
-mAP50: 0.8610
+## 🚀 6. Hướng Dẫn Cài Đặt & Khởi Chạy
 
-Thời gian suy luận (Inference Time): ~44.0 ms/ảnh (đáp ứng thời gian thực).
+### Yêu cầu hệ thống
 
-2. Mô hình PaddleOCR (Nhận dạng ký tự)
-Tập dữ liệu: 12,515 ảnh biển số (sau khi bổ sung ký tự hiếm và cân bằng dữ liệu).
+- Python >= 3.9
+- GPU (khuyến khích nếu dùng huấn luyện) hoặc CPU (cho giao diện suy luận Streamlit)
 
-Bộ từ điển (Dictionary): 36 ký tự (0-9 và A-Z).
+### Cài đặt
 
-Kết quả đánh giá trên tập Test:
+1. Clone repository:
 
-Accuracy (Độ chính xác tuyệt đối chuỗi): 85.6%
+   ```bash
+   git clone https://github.com/your-username/parking-management-system.git
+   cd parking-management-system
+   ```
 
-Normalized Edit Distance (NED): 0.952
+2. Cài đặt thư viện phụ thuộc:
 
-📂 Cấu Trúc File Báo Cáo
-Dưới đây là sơ lược cấu trúc tài liệu báo cáo đính kèm (Báo Cáo (2).pdf):
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Chương 1: Tổng quan về đề tài, tính cấp thiết, mục tiêu, đối tượng và phương pháp nghiên cứu.
+3. Chạy ứng dụng Web Streamlit:
 
-Chương 2: Cơ sở lý thuyết về bài toán ALPR, mô hình YOLOv8, kiến trúc PaddleOCR và các chỉ số đánh giá (mAP, Precision, Recall, NED).
+   ```bash
+   streamlit run app.py
+   ```
 
-Chương 3: Chi tiết chuẩn bị dữ liệu, cân bằng ký tự hiếm, quá trình huấn luyện và kết quả thực nghiệm + Giao diện ứng dụng Demo.
+4. Truy cập đường dẫn localhost hiển thị trên Terminal (mặc định: http://localhost:8501).
 
-Chương 4: Kết luận, các hạn chế còn tồn tại và hướng phát triển tương lai.
+## 📝 Thông Tin Tác Giả
 
-🚀 Hướng Dẫn Cài Đặt & Chạy Demo
-1. Yêu cầu hệ thống
-Python >= 3.9
-
-Môi trường hỗ trợ GPU (khuyên dùng nếu huấn luyện lại) hoặc CPU (cho chạy app demo).
-
-2. Cài đặt môi trường
-Bash
-# Clone repository
-git clone https://github.com/username/QuanLyBaiXeAuto.git
-cd QuanLyBaiXeAuto
-
-# Tạo môi trường ảo (tùy chọn)
-python -m venv venv
-source venv/bin/activate  # Trên Windows: venv\Scripts\activate
-
-# Cài đặt các thư viện cần thiết
-pip install -r requirements.txt
-3. Chạy ứng dụng Streamlit
-Bash
-streamlit run app.py
-Sau khi chạy command trên, truy cập đường dẫn http://localhost:8501 trên trình duyệt.
-
-🔮 Hướng Phát Triển Tương Lai
-[ ] Thu thập thêm dữ liệu thực tế trong điều kiện thiếu sáng, biển số mờ/nghiêng/2 dòng.
-
-[ ] Bổ sung bước Căn chỉnh góc nghiêng (Perspective Transformation) trước khi đưa ảnh vào OCR.
-
-[ ] Tích hợp mô hình CNN chuyên biệt để phân loại phương tiện (Ô tô / Xe máy) thay vì chỉ dự đoán qua chuỗi ký tự.
-
-[ ] Chuyển đổi Cơ sở dữ liệu sang MySQL/PostgreSQL và triển khai luồng xử lý Video Real-time với Camera IP.
-
-📝 Giấy Phép & Bản Quyền
-Đồ án được thực hiện bởi Phan Xuân Dương phục vụ cho mục đích học tập và nghiên cứu tại Trường Đại học Công nghệ TP.HCM (HUTECH). Vui lòng ghi rõ nguồn khi tham khảo hoặc tái sử dụng.
+- **Sinh viên thực hiện:** Phan Xuân Dương (MSSV: 2386400966 - Lớp: 23DKHA1)
+- **Giảng viên hướng dẫn:** ThS. Nguyễn Quang Phúc
+- **Trường:** Đại học Công nghệ TP.HCM (HUTECH) - Khoa Công Nghệ Thông Tin
